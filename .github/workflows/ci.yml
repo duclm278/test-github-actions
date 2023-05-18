@@ -1,6 +1,6 @@
 # Source: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: CI
+name: ci
 
 on:
   push:
@@ -39,5 +39,3 @@ jobs:
       working-directory: ${{ env.API_DIR }}
       run: |
         coverage report -m --skip-covered
-    # - name: Upload coverage reports to Codecov from GitHub Action
-    #   uses: codecov/codecov-action@v3
