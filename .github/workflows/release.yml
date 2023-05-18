@@ -34,11 +34,11 @@ jobs:
           context: ${{ env.API_DIR }}
           file: ${{ env.API_DIR }}/Dockerfile
           push: true
-          tags: ${{ env.API_IMAGE }}:${{ github.ref }}
+          tags: ${{ env.API_IMAGE }}:${{ github.ref_name }}
       - name: Build and push image for web
         uses: docker/build-push-action@v4
         with:
           context: ${{ env.WEB_DIR }}
           file: ${{ env.WEB_DIR }}/Dockerfile
           push: true
-          tags: ${{ env.WEB_IMAGE }}:${{ github.ref }}
+          tags: ${{ env.WEB_IMAGE }}:${{ github.ref_name }}
