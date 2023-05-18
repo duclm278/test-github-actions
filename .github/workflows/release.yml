@@ -20,7 +20,7 @@ jobs:
           - dir: ./app/web
             image: web
             build-args: |
-              VITE_APP_BASE_URL=https://api.example.com
+              VITE_APP_BASE_URL=http://localhost:5000
 
     steps:
       - name: Checkout
