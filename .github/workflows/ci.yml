@@ -39,5 +39,5 @@ jobs:
       working-directory: ${{ env.API_DIR }}
       run: |
         coverage report -m --skip-covered
-    - name: Upload coverage reports to Codecov from GitHub Action
-      uses: codecov/codecov-action@v3
+    # - name: Upload coverage reports to Codecov from GitHub Action
+    #   uses: codecov/codecov-action@v3
