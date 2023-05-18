@@ -31,7 +31,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            name/app
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ matrix.image }}
           tags: |
             type=ref,event=tag
             type=semver,pattern={{version}}
