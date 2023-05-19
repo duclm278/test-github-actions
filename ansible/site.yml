@@ -5,6 +5,15 @@
   gather_facts: true
   roles:
     - common
+  tags: [docker]
+
+- name: Tear down existing services
+  hosts: all
+  become: false
+  gather_facts: true
+  roles:
+    - cleanup
+  tags: [cleanup]
 
 - name: Deploy db
   hosts: all
@@ -12,6 +21,7 @@
   gather_facts: false
   roles:
     - db
+  tags: [deploy, db]
 
 - name: Deploy backend
   hosts: all
@@ -19,6 +29,8 @@
   gather_facts: false
   roles:
     - api
+    - { role: lb, lb_service: "{{ api_lb_service }}" }
+  tags: [deploy, api]
 
 - name: Deploy frontend
   hosts: all
@@ -26,3 +38,5 @@
   gather_facts: false
   roles:
     - web
+    - { role: lb, lb_service: "{{ web_lb_service }}" }
+  tags: [deploy, web]

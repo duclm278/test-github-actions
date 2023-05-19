@@ -1,7 +1,7 @@
 ---
-- name: Create and start service {{ db_service }}
+- name: Create and start service {{ lb_service }}
   community.docker.docker_compose:
     project_src: "{{ app_src }}"
     state: present
     services:
-      - "{{ db_service }}"
+      - "{{ lb_service }}"

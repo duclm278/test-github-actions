@@ -1,18 +1,12 @@
 ---
-- name: Tear down existing service {{ api_service }}
-  community.docker.docker_compose:
-    project_src: "{{ app_src }}"
-    state: absent
-
 - name: Create and start service {{ api_service }}
   community.docker.docker_compose:
     project_src: "{{ app_src }}"
     state: present
     services:
       - "{{ api_service }}"
-    scale:
-      "{ '{{ api_service }}': 2 }"
-  register: output
 
-- debug:
-    var: output
+- name: Scale service {{ api_service }}
+  community.docker.docker_compose:
+    project_src: "{{ app_src }}"
+    scale: "{ '{{ api_service }}': '{{ api_scale }}' }"

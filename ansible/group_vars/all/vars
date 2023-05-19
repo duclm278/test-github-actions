@@ -3,4 +3,8 @@ become_password: "{{ vault_become_password }}"
 app_src: ../app
 db_service: db
 api_service: api
+api_scale: 2
+api_lb_service: api-lb
 web_service: web
+web_scale: 2
+web_lb_service: web-lb

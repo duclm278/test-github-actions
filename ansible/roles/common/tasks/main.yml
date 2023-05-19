@@ -48,6 +48,11 @@
       - docker-compose-plugin
     state: present
 
+- name: Install Docker Compose v1 for backward compatibility
+  ansible.builtin.pip:
+    name: docker-compose
+    state: present
+
 - name: Ensure docker-group added user {{ remote_user }}
   ansible.builtin.user:
     name: "{{ remote_user }}"

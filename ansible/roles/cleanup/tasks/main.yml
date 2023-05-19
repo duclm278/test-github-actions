@@ -1,0 +1,5 @@
+---
+- name: Tear down existing services for {{ ansible_hostname }}
+  community.docker.docker_compose:
+    project_src: "{{ app_src }}"
+    state: absent
