@@ -1,14 +1,4 @@
 ---
-vm:
-  hosts:
-    vm01:
-      remote_user: duc
-      ansible_host: 192.168.0.105
-      ansible_user: "{{ remote_user }}"
-      ansible_python_interpreter: /usr/bin/python3
-      ansible_become_user: root
-      ansible_become_password: "{{ become_password }}"
-
 local:
   hosts:
     localhost:
@@ -19,7 +9,44 @@ local:
       ansible_become_user: root
       ansible_become_password: "{{ become_password }}"
 
+db:
+  hosts:
+    vm01:
+      remote_user: duc
+      ansible_host: 192.168.0.105
+      ansible_user: "{{ remote_user }}"
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_become_user: root
+      ansible_become_password: "{{ become_password }}"
+  children:
+    local:
+
+api:
+  hosts:
+    vm01:
+      remote_user: duc
+      ansible_host: 192.168.0.105
+      ansible_user: "{{ remote_user }}"
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_become_user: root
+      ansible_become_password: "{{ become_password }}"
+  children:
+    local:
+
+web:
+  hosts:
+    vm01:
+      remote_user: duc
+      ansible_host: 192.168.0.105
+      ansible_user: "{{ remote_user }}"
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_become_user: root
+      ansible_become_password: "{{ become_password }}"
+  children:
+    local:
+
 all:
   children:
-    vm:
-    local:
+    db:
+    api:
+    web:
