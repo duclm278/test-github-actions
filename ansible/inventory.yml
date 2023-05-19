@@ -2,9 +2,8 @@
 local:
   hosts:
     localhost:
-      remote_user: duc
+      ansible_user: duc
       ansible_connection: local
-      ansible_user: "{{ remote_user }}"
       ansible_python_interpreter: /usr/bin/python3
       ansible_become_user: root
       ansible_become_password: "{{ become_password }}"
@@ -12,9 +11,8 @@ local:
 db:
   hosts:
     vm01:
-      remote_user: duc
+      ansible_user: duc
       ansible_host: 192.168.0.105
-      ansible_user: "{{ remote_user }}"
       ansible_python_interpreter: /usr/bin/python3
       ansible_become_user: root
       ansible_become_password: "{{ become_password }}"
@@ -24,9 +22,8 @@ db:
 api:
   hosts:
     vm01:
-      remote_user: duc
+      ansible_user: duc
       ansible_host: 192.168.0.105
-      ansible_user: "{{ remote_user }}"
       ansible_python_interpreter: /usr/bin/python3
       ansible_become_user: root
       ansible_become_password: "{{ become_password }}"
@@ -36,9 +33,8 @@ api:
 web:
   hosts:
     vm01:
-      remote_user: duc
+      ansible_user: duc
       ansible_host: 192.168.0.105
-      ansible_user: "{{ remote_user }}"
       ansible_python_interpreter: /usr/bin/python3
       ansible_become_user: root
       ansible_become_password: "{{ become_password }}"
