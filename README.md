@@ -1,4 +1,4 @@
-# Mini Project <!-- omit in toc -->
+ # Mini Project <!-- omit in toc -->
 
 Author: **Le Minh Duc**
 
@@ -61,9 +61,13 @@ Author: **Le Minh Duc**
 
 - Output log of the CI workflow: [here](./.github/workflows/ci.log)
 
-- Demo:
+- Demo PR creating:
 
-  ![img](./assets/ci_demo.png)
+  ![img](./assets/ci_pr_creating.png)
+
+- Demo commit pushing:
+
+  ![img](./assets/ci_commit_pushing.png)
 
 ## 3. Continuous Delivery
 
