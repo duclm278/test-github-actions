@@ -1,12 +1,12 @@
 ---
-local:
+logger:
   hosts:
-    localhost:
-      ansible_user: duc
-      ansible_connection: local
+    logger01:
+      ansible_user: root
+      ansible_host: "{{ logger_host }}"
       ansible_python_interpreter: /usr/bin/python3
       ansible_become_user: root
-      ansible_become_password: "{{ vault_local_password }}"
+      ansible_become_password: "{{ vault_become_password }}"
 
 db:
   hosts:
@@ -15,9 +15,7 @@ db:
       ansible_host: "{{ db_host }}"
       ansible_python_interpreter: /usr/bin/python3
       ansible_become_user: root
-      ansible_become_password: "{{ vault_db_password }}"
-  # children:
-  #   local:
+      ansible_become_password: "{{ vault_become_password }}"
 
 api:
   hosts:
@@ -26,9 +24,7 @@ api:
       ansible_host: "{{ api_lb_host }}"
       ansible_python_interpreter: /usr/bin/python3
       ansible_become_user: root
-      ansible_become_password: "{{ vault_api_password }}"
-  # children:
-  #   local:
+      ansible_become_password: "{{ vault_become_password }}"
 
 web:
   hosts:
@@ -37,12 +33,11 @@ web:
       ansible_host: "{{ web_lb_host }}"
       ansible_python_interpreter: /usr/bin/python3
       ansible_become_user: root
-      ansible_become_password: "{{ vault_web_password }}"
-  # children:
-  #   local:
+      ansible_become_password: "{{ vault_become_password }}"
 
 app:
   children:
+    logger:
     db:
     api:
     web:
