@@ -71,7 +71,15 @@ Author: **Le Minh Duc**
 
 ## 3. Continuous Delivery
 
-- GitHub Action release workflow: [here](./.github/workflows/ci.yml)
+- GitHub Action release workflow: [here](./.github/workflows/release.yml)
+
+- Output log of the release workflow: [here]
+  - Raw logs for api: [here](./.github/workflows/release-api.log)
+  - Raw logs for web: [here](./.github/workflows/release-web.log)
+
+- Demo tagging v0.1.0:
+
+  ![img](./assets/release_tagging.png)
 
 ## 4. Monitoring
 
